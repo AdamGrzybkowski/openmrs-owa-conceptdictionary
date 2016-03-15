@@ -66,6 +66,19 @@ angular
                         		serverLocales: serverLocales
                         	}
                         }).
+                        when('/drugs-list', {
+                        	templateUrl: 'partials/drugs-list.html',
+                        	controller: 'DrugsListController',
+                        	controllerAs: 'vm',
+                        	resolve: {
+                        		loadDrugs : loadDrugs
+                        	}
+                        }).
+                        when('/drugs-list/add-drug', {
+                        	templateUrl: 'partials/drug-add.html',
+                        	controller: 'DrugAddController',
+                        	controllerAs: 'vm'
+                        }).
                         otherwise({
                           redirectTo: '/class-list'
                         });
@@ -95,7 +108,9 @@ function loadDataType ($route, openmrsRest){
 	return openmrsRest.getFull('conceptdatatype', 
 			{uuid: $route.current.params.dataTypeUUID});
 };
-
+function loadDrugs (openmrsRest){
+	return openmrsRest.listFull('drug');
+}
 
 
 

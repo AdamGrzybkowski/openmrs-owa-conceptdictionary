@@ -1,0 +1,26 @@
+<div>
+	<h2>Concept Drug Form</h2>
+	<button ng-click='vm.gotToAddDrugPage("/drugs-list/add-drug")'>Add Concept Drug</button><br><br>
+	<b class="boxHeader">
+	<a style="display: block; float: right"
+		href="#">
+		Toggle Retired
+	</a>
+		Manage Concept Drugs
+	</b>
+
+	<div class="box">
+	<table id="drugTable" cellpadding="2" cellspacing="0">
+	<tr>
+		<th>Name</th>		 
+		<th>Strength</th>
+	</tr>
+	<tr ng-repeat='drug in vm.drugsList'>
+		<a href="#/drugs-list/{{drag.uuid}}">{{drug.name}}</a>	
+		<td>{{drug.strength}}</td>
+	</tr>
+
+	
+</table>
+
+</div>
